@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/cssNavbar.css">
+</head>
+
+<body>
+    <?php
+        if (isset($_SESSION['dn'])) {
+            $ten=$_SESSION['dn'];
+        } else {
+            header('Location:./');
+        }
+    ?>
+    <header>
+        <p>MY PAGE-ADMIN</p>
+        <a href="?act=logout">Logout</a>
+    </header>
+    <div class="main">
+        <div class="main_bar">
+            <div class="user">
+                <img class="bgc" src="../assets/img/bgc_admin.png" alt="">
+                <div class="img_khung">
+                    <img src="../assets/img/img_admin3.jpeg" alt="">
+                </div>
+                <p1>Hi <?php echo $ten ?></p1>
+            </div>
+            <div class="danh_muc">
+                <ul>
+                    <li><img src="../assets/img/logohome.jpeg" alt=""><a href="">Home</a></li>
+                    <li><img src="../assets/img/logosanpham.jpeg" alt=""><a href="?act=listPro">Sản phẩm</a></li>
+                    <li><img src="../assets/img/danhmuc.png" alt=""><a href="?act=booth">Gian hàng</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
