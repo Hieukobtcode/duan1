@@ -1,0 +1,55 @@
+.list{
+    margin-top: -750px;
+    margin-left: 320px;
+}
+table{
+    border-collapse: collapse;
+    margin: 20px;
+}
+th{
+
+    padding: 10px;
+}
+tr td{
+    padding: 10px;
+}
+td img{
+    width: 65px;
+    height: 70px;
+}
+.title h3{
+    margin-top: -70px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: -7px;
+}
+.btn{
+    margin-left: 20px;
+    height: 30px;
+    background-color: coral;
+    border-radius: 5px;
+}
+.btn a{
+    text-decoration: none;
+    color: black;
+}
+.btn_sua{
+    background-color: cornflowerblue;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+.btn_sua a{
+    text-decoration: none;
+    color: black;
+}
+.btn_xoa{
+    background-color: crimson;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+.btn_xoa a{
+    text-decoration: none;
+    color: black;
+}
