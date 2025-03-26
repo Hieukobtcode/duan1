@@ -14,7 +14,7 @@ class taiKhoanModel
         return $this->conn->query($sql);
     }
 
-    function them_quan_tri($ten_dang_nhap, $pass, $email, $ngay_tao,$vai_tro)
+    function them_quan_tri($ten_dang_nhap, $pass, $email, $ngay_tao, $vai_tro)
     {
         $sql = "INSERT INTO nguoi_dungs (Ten_dang_nhap,Mat_khau, Email,Thoi_gian_tao,Vai_tro) 
             VALUES ('$ten_dang_nhap', '$pass', '$email', '$ngay_tao','$vai_tro')";
@@ -78,5 +78,33 @@ class taiKhoanModel
         }
         $stnt = $this->conn->prepare($sql);
         return $stnt->execute();
+    }
+
+    function danhSachDonHang($NguoiDungId)
+    {
+        $sql = "SELECT don_hangs.* , trang_thai_don_hangs.Id as trang_thai_id , trang_thai_don_hangs.Ten_trang_thai
+        FROM don_hangs
+        JOIN trang_thai_don_hangs ON trang_thai_don_hangs.Id = don_hangs.trang_thai_don_hang_id
+        WHERE don_hangs.Nguoi_dung_id = '$NguoiDungId' 
+        ORDER BY don_hangs.Id DESC";
+        return $this->conn->query($sql);
+    }
+
+    function danhGia($NguoiDungId)
+    {
+        $sql = "SELECT * FROM danh_gias
+        JOIN nguoi_dungs ON nguoi_dungs.Id = danh_gias.Nguoi_dung_id
+        WHERE 
+        Nguoi_dung_id = '$NguoiDungId' ";
+        return $this->conn->query($sql);
+    }
+
+    function binhLuan($NguoiDungId)
+    {
+        $sql = "SELECT * FROM binh_luans  
+        JOIN nguoi_dungs ON nguoi_dungs.Id = binh_luans.Nguoi_dung_id
+        WHERE
+        Nguoi_dung_id = '$NguoiDungId'";
+        return $this->conn->query($sql);
     }
 }

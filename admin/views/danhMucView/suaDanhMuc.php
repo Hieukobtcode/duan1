@@ -40,10 +40,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label">Mô tả</label>
-                                    <textarea name="mo_ta" class="form-control" placeholder="Nhập mô tả"><?= htmlspecialchars(trim($danh_muc['Mo_ta'])) ?></textarea>
+                                        <textarea name="mo_ta" class="form-control" placeholder="Nhập mô tả"><?= htmlspecialchars(trim($danh_muc['Mo_ta'])) ?></textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="inputStatus">Trạng thái danh mục</label>
+                                    <select name="trang_thai" id="inputStatus" class="form-control custom-select">
+                                        <?php $selectedStatus = $danh_muc['trang_thai']; ?>
+                                        <option value="Active" <?= $selectedStatus == 'Active' ? 'selected' : '' ?>>Active</option>
+                                        <option value="Inactive" <?= $selectedStatus == 'Inactive' ? 'selected' : '' ?>>Inactive</option>
+                                    </select>
 
-
+                                </div>
 
                             </div>
                             <!-- /.card-body -->

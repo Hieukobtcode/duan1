@@ -50,7 +50,7 @@
 
                                 <div class="form-group">
                                     <label">Số điện thoại</label>
-                                        <input type="text" class="form-control" name="so_dien_thoai" placeholder="Nhập Số điện thoại">
+                                        <input type="text" value="<?= $quan_tri['So_dien_thoai'] ?>" class="form-control" name="so_dien_thoai" placeholder="Nhập Số điện thoại">
                                         <?php if (isset($error['so_dien_thoai'])) { ?>
                                             <p class="text-danger"> <?= $error['so_dien_thoai'] ?></p>
                                         <?php } ?>
@@ -59,8 +59,8 @@
                                 <div class="form-group">
                                     <label for="inputStatus">Trạng thái tài khoản</label>
                                     <select name="trang_thai" id="inputStatus" class="form-control custom-select">
-                                        <option  <?= $quan_tri['Trang_thai'] == 'active' ?'selected' : '' ?> value="active">Hoạt động</option>
-                                        <option  <?= $quan_tri['Trang_thai'] !== 'active' ?'selected' : '' ?> value="inactive">Không hoạt động</option>
+                                        <option  <?= $quan_tri['Trang_thai'] == 'Active' ?'selected' : '' ?> value="active">Hoạt động</option>
+                                        <option  <?= $quan_tri['Trang_thai'] == 'Inactive' ?'selected' : '' ?> value="inactive">Không hoạt động</option>
                                     </select>
                                 </div>                                
 

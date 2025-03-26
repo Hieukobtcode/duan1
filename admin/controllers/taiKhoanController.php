@@ -34,7 +34,7 @@ class taiKhoanController
 
             if (empty($error)) {
                 if ($this->taiKhoanModel->sua_quan_tri($id,$ten_dang_nhap,$so_dien_thoai,$email,$trang_thai)) {
-                    header('Location:?act=listQuanTri');
+                    echo "<script>window.location.href = '?act=listQuanTri';</script>";
                     exit();
                 } else {
                     echo "Khong the sua";
@@ -64,7 +64,7 @@ class taiKhoanController
 
             if (empty($error)) {
                 if ($this->taiKhoanModel->them_quan_tri($ten_dang_nhap, $mat_khau , $email,$ngay_tao,$vai_tro)) {
-                    header('Location:?act=listQuanTri');
+                    echo "<script>window.location.href = '?act=listQuanTri';</script>";
                     exit();
                 } else {
                     echo "Khong the them";
@@ -80,7 +80,7 @@ class taiKhoanController
     {
         $pass = password_hash('123@456', PASSWORD_BCRYPT);
         if ($this->taiKhoanModel->xoa_pass($id,$pass)) {
-            header('Location:?act=listQuanTri');
+            echo "<script>window.location.href = '?act=listQuanTri';</script>";
             echo '<script>alert("Reset mật khẩu thành")<script>';
         } else {
             echo "Khong the reset pass";
@@ -131,7 +131,7 @@ class taiKhoanController
 
             if (empty($error)) {
                 if ($this->taiKhoanModel->sua_khach_hang($id,$ten_dang_nhap,$email,$ho_ten,$anh_dai_dien,$so_dien_thoai,$dia_chi,$ngay_thang_nam_sinh,$trang_thai)) {
-                    header('Location:?act=listKhachHang');
+                    echo "<script>window.location.href = '?act=listKhachHang';</script>";
                     exit();
                 } else {
                     echo "Khong the sua";
@@ -144,6 +144,9 @@ class taiKhoanController
     }
 
     function chiTietKhachHang($id){
+        $danhGias = $this->taiKhoanModel->danhGia($id)->fetchAll();
+        $binhLuans = $this->taiKhoanModel->binhLuan($id)->fetchAll();
+        $dsDonHangs  = $this->taiKhoanModel->danhSachDonHang($id)->fetchAll();
         $KhachHang = $this->taiKhoanModel->tim_khach_hang($id)->fetch();
         require_once 'views/taiKhoan/khachHang/chiTietKhachHang.php';
     }

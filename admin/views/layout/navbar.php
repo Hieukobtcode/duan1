@@ -5,7 +5,7 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="../../index3.html" class="nav-link">Website</a>
+      <a href="../" class="nav-link">Website</a>
     </li>
   </ul>
   <?php require_once 'models/lienheModel.php' ?>
@@ -13,9 +13,13 @@
   <ul class="navbar-nav ml-auto">
     <?php require_once 'models/lienheModel.php';
     $lienHeModel = new lienHeModel();
-    $allLienHe = $lienHeModel->trang_thai_lien_he();
-    $soLienHe = $lienHeModel->trang_thai_lien_he()->fetchColumn();
+    $allLienHe = $lienHeModel->danh_sach_lien_he();
+    $soLienHe =$lienHeModel->trang_thai_lien_he()->fetchColumn();
     ?>
+  <div>
+  <a href="?act=logout">Đăng xuất</a>
+
+  </div>
     <!-- Messages Dropdown Menu -->
     <li class="nav-item dropdown">
       <a class="nav-link" data-toggle="dropdown" href="#">
@@ -35,7 +39,7 @@
                 </h3>
                 <p class="text-sm"><?= htmlspecialchars($lienHe['Noi_dung']); ?></p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>
-                  <?= date("H") - date("H", strtotime($lienHe['Thoi_gian_gui_lien_he'])); ?>
+                  <?= date("H") - date("H", strtotime($lienHe['Thoi_gian_gui_lien_he'])); ?>h
                 </p>
               </div>
             </div>

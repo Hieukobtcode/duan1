@@ -34,25 +34,25 @@
 
                                 <div class="form-group">
                                     <label">Tiêu đề</label>
-                                    <input type="text" class="form-control" name="tieu_de" placeholder="Nhập tiêu đề">
-                                    <?php if(isset($error['tieu_de'])){ ?>
-                                        <p class="text-danger"> <?= $error['tieu_de'] ?></p>
-                                    <?php } ?>
+                                        <input type="text" class="form-control" name="tieu_de" placeholder="Nhập tiêu đề">
+                                        <?php if (isset($error['tieu_de'])) { ?>
+                                            <p class="text-danger"> <?= $error['tieu_de'] ?></p>
+                                        <?php } ?>
                                 </div>
 
                                 <div class="form-group">
                                     <label">Nội dung</label>
-                                    <textarea name="noi_dung" class="form-control" placeholder="Nhập nội dung"></textarea>
-                                    <?php if(isset($error['tieu_de'])){ ?>
-                                        <p class="text-danger"> <?= $error['noi_dung'] ?></p>
-                                    <?php } ?>
+                                        <textarea name="noi_dung" class="form-control" placeholder="Nhập nội dung"></textarea>
+                                        <?php if (isset($error['tieu_de'])) { ?>
+                                            <p class="text-danger"> <?= $error['noi_dung'] ?></p>
+                                        <?php } ?>
                                 </div>
 
-                                <div class="form-group">
-                                    <label">Ảnh</label>
-                                    <input type="file" name="img" class="form-control" placeholder="Chọn hình ảnh"></input>
+                                <div class="input-group mb-3">
+                                    <input name="img" type="file" class="form-control" id="inputGroupFile02">
+                                    <label class="input-group-text" for="inputGroupFile02">Chọn ảnh</label>
                                 </div>
-                                
+
                             </div>
                             <!-- /.card-body -->
 

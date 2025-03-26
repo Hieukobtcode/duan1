@@ -20,15 +20,15 @@ class danhMucController
             $ten_danh_muc = $_POST['ten_danh_muc'];
             $ngay_cap_nhat = date("Y-m-d");
             $mo_ta = $_POST['mo_ta'];
-
+            $trang_thai=$_POST['trang_thai'];
             $error = [];
             if (empty($ten_danh_muc)) {
                 $error['ten_danh_muc'] = "Tên danh mục không được để trống";
             }
 
             if (empty($error)) {
-                if ($this->danhMucModel->sua_danh_muc($id, $ten_danh_muc, $ngay_cap_nhat, $mo_ta)) {
-                    header('Location:?act=danhMuc');
+                if ($this->danhMucModel->sua_danh_muc($id, $ten_danh_muc, $ngay_cap_nhat,$trang_thai, $mo_ta)) {
+                    echo "<script>window.location.href = '?act=danhMuc';</script>";
                     exit();
                 } else {
                     echo "Khong the sua";
@@ -47,15 +47,14 @@ class danhMucController
             $mo_ta = $_POST['mo_ta'];
             $ngay_tao =  (new DateTime())->format("Y-m-d");
             $ngay_cap_nhat =  (new DateTime())->format("Y-m-d");
-
             $error = [];
             if (empty($ten_danh_muc)) {
                 $error['ten_danh_muc'] = "Tên danh mục không được để trống";
             }
 
             if (empty($error)) {
-                if ($this->danhMucModel->them_danh_muc($ten_danh_muc, $ngay_tao, $ngay_cap_nhat, $mo_ta)) {
-                    header('Location:?act=danhMuc');
+                if ($this->danhMucModel->them_danh_muc($ten_danh_muc, $ngay_tao, $ngay_cap_nhat,$mo_ta)) {
+                    echo "<script>window.location.href = '?act=danhMuc';</script>";
                     exit();
                 } else {
                     echo "Khong the them danh muc";
@@ -70,7 +69,7 @@ class danhMucController
     function xoa_danh_muc($id)
     {
         if ($this->danhMucModel->xoa_danh_muc($id)) {
-            header('Location:?act=danhMuc');
+            echo "<script>window.location.href = '?act=danhMuc';</script>";
         } else {
             echo "Khong the xoa danh muc";
         }

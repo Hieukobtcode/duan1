@@ -23,7 +23,7 @@ class tinTucController
             
             $img = $_FILES['img']['name'];
             $tmp = $_FILES['img']['tmp_name'];
-            move_uploaded_file($tmp, __DIR__ . '/../../assets/img/' .$img);
+            move_uploaded_file($tmp,'./assets/img/' .$img);
 
             $error = [];
             if (empty($tieu_de)) {
@@ -35,7 +35,7 @@ class tinTucController
 
             if (empty($error)) {
                 if ($this->tinTucModel->them_tin_tuc($tieu_de, $noi_dung, $thoi_gian_tao, $thoi_gian_cap_nhat, $img)) {
-                    header('Location:?act=baiViet');
+                    echo "<script>window.location.href = '?act=baiViet';</script>";
                     exit();
                 } else {
                     echo "Khong the them";
@@ -58,7 +58,7 @@ class tinTucController
 
             $img = $_FILES['img']['name'];
             $tmp = $_FILES['img']['tmp_name'];
-            move_uploaded_file($tmp, __DIR__ . '/../../assets/img/' . $img);
+            move_uploaded_file($tmp,'./assets/img/' . $img);
 
             $error = [];
             if (empty($tieu_de)) {
@@ -70,7 +70,7 @@ class tinTucController
 
             if (empty($error)) {
                 if ($this->tinTucModel->sua_tin_tuc($id,$tieu_de, $noi_dung, $thoi_gian_cap_nhat, $img, $trang_thai)) {
-                    header('Location:?act=baiViet');
+                    echo "<script>window.location.href = '?act=baiViet';</script>";
                     exit();
                 } else {
                     echo "Khong the them";
@@ -85,7 +85,7 @@ class tinTucController
     function xoa_tin_tuc($id)
     {
         if ($this->tinTucModel->xoa_tin_tuc($id)) {
-            header('Location:?act=baiViet');
+            echo "<script>window.location.href = '?act=baiViet';</script>";
         } else {
             echo "Khong the xoa tin tuc";
         }

@@ -46,20 +46,19 @@
                                             <p class="text-danger"> <?= $error['noi_dung'] ?></p>
                                         <?php } ?>
                                 </div>
-
-                                <div class="form-group">
-                                    <label">Ảnh</label>
-                                        <img src="./assets/img/<?= $tin_tuc['img'] ?>" alt="">
-                                        <input type="file" name="img" class="form-control" placeholder="Chọn hình ảnh"></input>
+                                <img width="300px" src="./assets/img/<?= $tin_tuc['img'] ?>" alt="">
+                                <div class="input-group mb-3">
+                                    <input name="img" type="file" class="form-control" id="inputGroupFile02">
+                                    <label class="input-group-text" for="inputGroupFile02">Chọn ảnh</label>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputStatus">Trạng thái bài viết</label>
                                     <select name="trang_thai" id="inputStatus" class="form-control custom-select">
-                                        <option  <?= $tin_tuc['Trang_thai'] = 'published' ?'selected' : '' ?> value="published">Đã đăng</option>
-                                        <option  <?= $tin_tuc['Trang_thai'] != 'published' ?'selected' : '' ?> value="draft">Bản nháp</option>
-                                    </select>
-                                </div>  
+                                        <option <?= $tin_tuc['Trang_thai'] == 'Published' ? 'selected' : '' ?> value="Published">Đã đăng</option>
+                                        <option <?= $tin_tuc['Trang_thai'] == 'Draft' ? 'selected' : '' ?> value="Draft">Bản nháp</option>
+                                    </select>   
+                                </div>
 
                             </div>
                             <!-- /.card-body -->
